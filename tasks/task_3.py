@@ -1,4 +1,9 @@
+from functools import wraps
+
+
 def validate_positive(func):
+
+    @wraps(func)
     def wrapper(*args, **kwargs):
         for arg in args:
             if isinstance(arg, (int, float)) and arg <= 0:
